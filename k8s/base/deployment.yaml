@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: modernapp
+  labels:
+    app: modernapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: modernapp
+  template:
+    metadata:
+      labels:
+        app: modernapp
+    spec:
+      containers:
+      - name: modernapp
+        image: modernapp
+        env:
+          - name: PORT
+            value: "8080"
+          - name: TARGET
+            value: "LOCAL Dev"
